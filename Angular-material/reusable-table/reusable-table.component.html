@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center w-100">
+  <div class="mat-elevation-z8  w-80">
+    <table mat-table class="full-width-table capitalize" [dataSource]="dataSource" matSort>
+      <ng-container
+        class="capitalize"
+        *ngFor="let col of displayedColumns"
+        matColumnDef="{{ col }}"
+      >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ col | uppercase }}</th>
+        <td mat-cell *matCellDef="let element">{{ element[col] }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="pageList" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
+<!-- <div class="d-flex justify-content-center">
+  <mat-spinner *ngIf="dataSource$"></mat-spinner>
+</div> -->
